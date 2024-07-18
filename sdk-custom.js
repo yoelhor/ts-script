@@ -9,7 +9,7 @@ function TransmitSecurityInit(event) {
 
   // Initialize the SDK
   window.tsPlatform.initialize({ clientId: "e9h3ui2ygm3hrkg7xhsmihsx1vg26vbp", drs: { serverPath: "https://api.transmitsecurity.io/risk-collect/" } });
-  console.log("TS intialized");
+  console.log("Transmit Security:  Intialized");
 
   //const form = document.querySelector("form");
   //form.addEventListener("submit", TransmitSecurityTriggerActionEvent);
