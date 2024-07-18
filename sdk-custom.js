@@ -28,7 +28,7 @@ function TransmitSecurityTriggerActionEvent(event) {
   console.log("TransmitSecurityTriggerActionEvent started");
 
   // Prevent the default form submission
-  event.preventDefault();
+  //event.preventDefault();
 
   window.tsPlatform.drs.triggerActionEvent("register", { "claimedUserId": "hashedemail@test.com" }).then((actionResponse) => {
     let actionToken = actionResponse.actionToken;
