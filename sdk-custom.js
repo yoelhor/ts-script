@@ -24,7 +24,7 @@ function TransmitSecurityInitSdk() {
   if (document.getElementById("headerLogo") != null) {
 
     console.log("Transmit Security: Successfully registered the onclick event");
-    
+
     document.getElementById("headerLogo").addEventListener("click", function (e) {
       TransmitSecurityTriggerActionEvent();
     });
@@ -51,6 +51,9 @@ function TransmitSecurityTriggerActionEvent(event) {
     if (document.getElementById("idisplayNameInput") != null) {
       document.getElementById("idisplayNameInput").value = actionToken;
       console.log("Transmit Security: Token is in 'idisplayNameInput'");
+    }
+    else {
+      console.log("Transmit Security: Error cannot find the idisplayNameInput");
     }
 
     event.target.submit();
