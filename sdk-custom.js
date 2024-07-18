@@ -1,3 +1,5 @@
+console.log("Transmit Security:  Script successfully loaded");
+
 function TransmitSecurityInit(event) {
 
   // Load the SDK
@@ -55,3 +57,6 @@ function TransmitSecurityTriggerActionEvent(event) {
   // Return false to prevent the form from submitting before async completes
   return false;
 }
+
+// Initialize the SDK
+TransmitSecurityInit();
