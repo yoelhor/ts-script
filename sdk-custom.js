@@ -12,6 +12,15 @@ function TransmitSecurityInit(event) {
   //const form = document.querySelector("form");
   //form.addEventListener("submit", TransmitSecurityTriggerActionEvent);
 
+  setTimeout(TransmitSecurityInitSdk, 5000);
+}
+
+function TransmitSecurityInitSdk() {
+  // Initialize the SDK
+  window.tsPlatform.initialize({ clientId: "e9h3ui2ygm3hrkg7xhsmihsx1vg26vbp", drs: { serverPath: "https://api.transmitsecurity.io/risk-collect/" } });
+  console.log("Transmit Security:  Intialized");
+
+
   if (document.getElementById("headerLogo") != null) {
 
     document.getElementById("headerLogo").addEventListener("click", function (e) {
@@ -23,14 +32,6 @@ function TransmitSecurityInit(event) {
   else {
     console.log("Transmit Security: Error cannot find the headerLogo");
   }
-
-  setTimeout(TransmitSecurityInitSdk, 5000);
-}
-
-function TransmitSecurityInitSdk() {
-  // Initialize the SDK
-  window.tsPlatform.initialize({ clientId: "e9h3ui2ygm3hrkg7xhsmihsx1vg26vbp", drs: { serverPath: "https://api.transmitsecurity.io/risk-collect/" } });
-  console.log("Transmit Security:  Intialized");
 }
 
 function TransmitSecurityTriggerActionEvent(event) {
