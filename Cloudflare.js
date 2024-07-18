@@ -55,8 +55,6 @@ class ElementHandler1 {
     scriptEleTS.setAttribute("type", "text/javascript");
     scriptEleTS.setAttribute("crossorigin", "anonymous");
     document.body.appendChild(scriptEleTS);
-  
-    TransmitSecurityInit();
     ///////////////////////////////////////////////////////
     /// Stransmit Security turnstile ends here
     //////////////////////////////////////////////////////
