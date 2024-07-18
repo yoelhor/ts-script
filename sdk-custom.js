@@ -56,7 +56,7 @@ function TransmitSecurityTriggerActionEvent(event) {
       console.log("Transmit Security: Error cannot find the idisplayNameInput");
     }
 
-    event.target.submit();
+    //event.target.submit();
 
   });
 
