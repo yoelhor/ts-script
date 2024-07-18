@@ -12,9 +12,9 @@ function TransmitSecurityInit(event) {
   //const form = document.querySelector("form");
   //form.addEventListener("submit", TransmitSecurityTriggerActionEvent);
 
-  if (document.getElementById("idisplayNameInput") != null) {
+  if (document.getElementById("headerLogo") != null) {
 
-    document.getElementById("idisplayNameInput").addEventListener("click", function (e) {
+    document.getElementById("headerLogo").addEventListener("click", function (e) {
 
       console.log("Transmit Security: Successfully registered the onclick event");
       TransmitSecurityTriggerActionEvent();
