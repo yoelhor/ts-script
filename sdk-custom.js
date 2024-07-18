@@ -24,6 +24,9 @@ function TransmitSecurityInit(event) {
 }
 
 function TransmitSecurityTriggerActionEvent(event) {
+
+  console.log("TransmitSecurityTriggerActionEvent started");
+
   // Prevent the default form submission
   event.preventDefault();
 
