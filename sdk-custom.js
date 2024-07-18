@@ -23,9 +23,9 @@ function TransmitSecurityInitSdk() {
 
   if (document.getElementById("headerLogo") != null) {
 
+    console.log("Transmit Security: Successfully registered the onclick event");
+    
     document.getElementById("headerLogo").addEventListener("click", function (e) {
-
-      console.log("Transmit Security: Successfully registered the onclick event");
       TransmitSecurityTriggerActionEvent();
     });
   }
@@ -43,7 +43,7 @@ function TransmitSecurityTriggerActionEvent(event) {
 
   window.tsPlatform.drs.triggerActionEvent("register", { "claimedUserId": "hashedemail@test.com" }).then((actionResponse) => {
     let actionToken = actionResponse.actionToken;
-    console.log("Reading the TS token");
+    console.log("Transmit Security: Reading the action token");
     //document.getElementById("ts-drs-response").value = actionToken;
     console.log("Transmit Security: Token " + actionToken);
 
