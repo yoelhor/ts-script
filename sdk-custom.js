@@ -17,15 +17,21 @@ function TransmitSecurityInit(event) {
   if (document.getElementById("idisplayNameInput") != null) {
 
     document.getElementById("idisplayNameInput").addEventListener("click", function (e) {
+
+      console.log("Transmit Security: Successfully registered the onclick event");
       TransmitSecurityTriggerActionEvent();
     });
+  }
+  else
+  {
+    console.log("Transmit Security: Error cannot find the idisplayNameInput");
   }
 
 }
 
 function TransmitSecurityTriggerActionEvent(event) {
 
-  console.log("TransmitSecurityTriggerActionEvent started");
+  console.log("Transmit Security: TriggerActionEvent started");
 
   // Prevent the default form submission
   //event.preventDefault();
@@ -34,12 +40,12 @@ function TransmitSecurityTriggerActionEvent(event) {
     let actionToken = actionResponse.actionToken;
     console.log("Reading the TS token");
     //document.getElementById("ts-drs-response").value = actionToken;
-    console.log("TS token: " + actionToken);
+    console.log("Transmit Security: Token " + actionToken);
 
     // Inject the action token into the display name field
     if (document.getElementById("idisplayNameInput") != null) {
       document.getElementById("idisplayNameInput").value = actionToken;
-      console.log("TS token is in 'idisplayNameInput'");
+      console.log("Transmit Security: Token is in 'idisplayNameInput'");
     }
 
     event.target.submit();
