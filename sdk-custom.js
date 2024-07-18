@@ -21,7 +21,7 @@ function TransmitSecurityInit(event) {
     });
   }
   else {
-    console.log("Transmit Security: Error cannot find the idisplayNameInput");
+    console.log("Transmit Security: Error cannot find the headerLogo");
   }
 
   setTimeout(TransmitSecurityInitSdk, 5000);
