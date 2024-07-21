@@ -1,4 +1,4 @@
-console.log("Transmit Security:  Script successfully loaded");
+console.log("Transmit Security: Script successfully loaded test");
 
 function TransmitSecurityInit(event) {
 
