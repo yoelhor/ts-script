@@ -49,7 +49,7 @@ function getCorrelationId() {
   }
 }
 
-function TransmitSecurtyTriggerActionEvent(event) {
+function TransmitSecurityTriggerActionEvent(event) {
   console.log("Transmit Security: TriggerActionEvent started");
   const email = getEmail();
   const correlationId = getCorrelationId();
