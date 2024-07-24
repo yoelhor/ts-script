@@ -18,16 +18,12 @@ function TransmitSecurityInitSdk() {
     console.log("Transmit Security:  Initialized");
   });
 
-  const button = document.getElementById("idSIButton9");
-  if (button != null) {
-    console.log("Transmit Security: Successfully registered the onclick event");
-    button.addEventListener("click", function (e) {
+  console.log("Transmit Security: Successfully registered the onclick event");
+  document.addEventListener("click", function (e) {
+    if (e.target.id === 'idSIButton9') {
       TransmitSecurityTriggerActionEvent();
-    });
-  }
-  else {
-    console.log("Transmit Security: Error cannot find button idSIButton9");
-  }
+    }
+  });
 }
 
 function TransmitSecurityTriggerActionEvent(event) {
