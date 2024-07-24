@@ -26,10 +26,34 @@ function TransmitSecurityInitSdk() {
   });
 }
 
-function TransmitSecurityTriggerActionEvent(event) {
-  console.log("Transmit Security: TriggerActionEvent started");
+function getEmail() {
+  try {
+    const inputs = $Config['arrPaginatedInputs'][0]['inputs'];
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i];
+      if (input['name'] === 'email') {
+        return input['value']
+      }
+    }
+  } catch (err) {
+    console.log("Failed to get email", err)
+  }
+}
 
-  window.tsPlatform.drs.triggerActionEvent("register", { "claimedUserId": "hashedemail@test.com" }).then((actionResponse) => {
+
+function getCorrelationId() {
+  try {
+    return $Config['correlationId'];
+  } catch (err) {
+    console.log("Failed to get correlation id", err)
+  }
+}
+
+function TransmitSecurtyTriggerActionEvent(event) {
+  console.log("Transmit Security: TriggerActionEvent started");
+  const email = getEmail();
+  const correlationId = getCorrelationId();
+  window.tsPlatform.drs.triggerActionEvent("register", { "claimedUserId": email, "correlationId": correlationId }).then((actionResponse) => {
     let actionToken = actionResponse.actionToken;
     console.log("Transmit Security: Token " + actionToken);
 
