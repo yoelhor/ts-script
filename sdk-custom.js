@@ -52,21 +52,30 @@ function getCorrelationId() {
 
 function TransmitSecurityTriggerActionEvent(event) {
   console.log("Transmit Security: TriggerActionEvent started");
-  const email = getEmail();
-  const correlationId = getCorrelationId();
-  window.tsPlatform.drs.triggerActionEvent("register", { "claimedUserId": email, "correlationId": correlationId }).then((actionResponse) => {
-    let actionToken = actionResponse.actionToken;
-    console.log("Transmit Security: Token " + actionToken);
+  const oldActionToken = window.actionToken;
 
-    // Inject the action token into the display name field
-    if (document.getElementById("idisplayNameInput") != null) {
-      document.getElementById("idisplayNameInput").value = actionToken;
-      console.log("Transmit Security: Token is in 'idisplayNameInput'");
-    }
-    else {
-      console.log("Transmit Security: Error cannot find the idisplayNameInput");
-    }
-  });
+  if (!oldActionToken) {
+    const email = getEmail();
+    const correlationId = getCorrelationId();
+    window.tsPlatform.drs.triggerActionEvent("register", { "claimedUserId": email, "correlationId": correlationId }).then((actionResponse) => {
+      const displayName = document.getElementById("idisplayNameInput");
+      let actionToken = actionResponse.actionToken;
+      console.log("Transmit Security: Token " + actionToken);
+
+      // Inject the action token into the display name field
+      window.actionToken = actionToken;
+      if (displayName != null) {
+        displayName.value = actionToken;
+        displayName.disabled = true
+        console.log("Transmit Security: Token is in 'idisplayNameInput'");
+      }
+      else {
+        console.log("Transmit Security: Error cannot find the idisplayNameInput");
+      }
+    });
+  } else {
+    console.log("Transmit Security: not fetching token already fetched");
+  }
 }
 
 // Initialize the SDK
