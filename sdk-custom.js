@@ -20,8 +20,8 @@ function TransmitSecurityInitSdk() {
 
   console.log("Transmit Security: Successfully registered the onclick event");
   document.addEventListener("click", function (e) {
-    const url = window.location.href;
-    if (e.target.id === 'idSIButton9' && url.includes('/login')) {
+    const pathname = window.location.pathname;
+    if (e.target.id === 'idSIButton9' && pathname.includes('/login')) {
       TransmitSecurityTriggerActionEvent();
     }
   });
